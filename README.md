@@ -1,2 +1,2 @@
-# JLMemoryGame
-GA Memory Game
+# wdi-fundamentals-memorygame
+wdi-fundamentals-memorygame
