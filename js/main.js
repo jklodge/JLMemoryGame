@@ -13,9 +13,9 @@ var cardTwo = cards[2];
 cardsInPlay.push(cardTwo);
 console.log("User flipped " + cardTwo);
 
-if (cardsInPlay.length === 2) {
-	console.log("Two cards have been played.");
-} else if (cardsInPlay[0] === (cardsInPlay[2]){
+if (cardsInPlay.length !== 2) {
+	console.log("Two cards have not been played.");
+} else if (cardsInPlay[0] === cardsInPlay[2]) {
 	alert("You found a match!");
 }
 else { alert("Sorry, try again."); 
