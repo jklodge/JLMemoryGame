@@ -20,59 +20,58 @@ var cards = [
 	cardImage: "images/king-of-diamonds.png"
 }
 ];
+
+
 var cardsInPlay = [];
 
+//checking for a match
 var checkForMatch = function() {
-
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-console.log("You found a match!");
+	if (cardsInPlay[0] === cardsInPlay[1]){
+	alert("You found a match!");	
 } else {
-console.log("Sorry, try again.");
+	alert("Sorry try again");
 }
 }
 
-var flipCard = function () {
-	flipCard(0);
-	flipCard(2);
-	var cardId = this.getAttribute('data-id');
-
-	// Adding cards to in play
-	cardsInPlay.push(cards[cardId].rank);
-
-	//add the card image
+var flipCard = function() {
+	//here we're getting the data-id attribute of the card that was clicked and storing it in a varibale called cardId
+	//don't really understand why we're using this or calling the data-id up here above where we set it
+	var cardId = this.getAttribute("data-id");
+	//setting the attribute to the 
 	this.setAttribute("src", cards[cardId].cardImage);
-
-	//show the image
-	console.log(cards[cardId].cardImage);
-
-	//show the rank
-	console.log(cards[cardId].rank);
+	
+	//this is where I'm going wrong
+	if (cardsInPlay.length === 2) {
+		
+	}
+	//calling the check for a match function
 	checkForMatch();
-
-	//show the suit
+	
+	// putting the cardId parameter inside Card and creating 
+	console.log("User Flipped " + cards[cardId].rank);
+	//putting the card that was played into the cardinplay array
+	cardsInPlay.push(cards[cardId].rank);
+	//so we can "see" the cards that have been flipped
+	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
-
-	if (cardsInPlay.length === 2)
-		checkForMatch();
-
-	}	
+}
 
 var createBoard = function() {
-	for (var i = 0; i < cards.lemgth; i++) {
-		var cardElement = document.createElement("img");
-		cardElement.setAttribute('src', 'images/back.png');
-		cardElement.setAttribute("data-id", i);
-
-
-		//adding an event listener, JS waiting for a user to click
-
-		cardElement.addEventListener('click', flipCard);
-
-		//putting the card on the board
-		document.getElementById('game-board').appendChild(cardElement);
-
-	}
-}
-
+ for (var i = 0; i < cards.length; i++){
+ 	//maybe everything should go here or maybe just the addEventListener()
+ 
+ // using the createElement method to create an img element and store to variable
+ // or was i meant to call this cardElement
+ var cardElement = document.createElement("img");
+ 
+ //using the setAttribute mettion to add a src attribute for the cardElement
+ cardElement.setAttribute("src", 'images/back.png');
+ //setting the cards data id attribute to be the index of the current element (i)
+ cardElement.setAttribute('data-id', i);
+ //using addEventListener to wait and add a click event to the cardElement with the function flipCard
+ cardElement.addEventListener('click', flipCard);
+ //finally appending the current cardElement to the game board
+ document.getElementById('game-board').appendChild(cardElement);
+ }
+};
 createBoard();
-
