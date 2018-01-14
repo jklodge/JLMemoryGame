@@ -34,7 +34,7 @@ var checkForMatch = function() {
 	alert("Sorry try again");
 }
 }		
-}
+};
 
 var flipCard = function() {
 	//here we're getting the data-id attribute of the card that was clicked and storing it in a varibale called cardId
