@@ -26,11 +26,14 @@ var cardsInPlay = [];
 
 //checking for a match
 var checkForMatch = function() {
+	//This line I found a bit confusing why is it = to 1 and not 2 and what is the first if line doing in relation to the others?
+	if (cardsInPlay.length === 2) {
 	if (cardsInPlay[0] === cardsInPlay[1]){
 	alert("You found a match!");	
 } else {
 	alert("Sorry try again");
 }
+}		
 }
 
 var flipCard = function() {
@@ -40,10 +43,6 @@ var flipCard = function() {
 	//setting the attribute to the 
 	this.setAttribute("src", cards[cardId].cardImage);
 	
-	//this is where I'm going wrong
-	if (cardsInPlay.length === 2) {
-		
-	}
 	//calling the check for a match function
 	checkForMatch();
 	
@@ -57,9 +56,7 @@ var flipCard = function() {
 }
 
 var createBoard = function() {
- for (var i = 0; i < cards.length; i++){
- 	//maybe everything should go here or maybe just the addEventListener()
- 
+ for (var i = 0; i < cards.length; i++){ 
  // using the createElement method to create an img element and store to variable
  // or was i meant to call this cardElement
  var cardElement = document.createElement("img");
